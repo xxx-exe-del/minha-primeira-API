@@ -18,7 +18,7 @@ jobs:
       - uses: teodororo/SCAIA@v2
         with:
           api-token: ${{ secrets.AI_API_TOKEN }}
-          model: gpt-5.5-pro
+          model: gpt-5.1-codex-max
 
   full:
     if: github.event_name != 'pull_request'
@@ -31,4 +31,4 @@ jobs:
         with:
           mode: full
           api-token: ${{ secrets.AI_API_TOKEN }}
-          model: gpt-5.5-pro
+          model: gpt-5.1-codex-max
