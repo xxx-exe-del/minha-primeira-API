@@ -29,4 +29,4 @@ jobs:
         with:
           mode: full
           api-token: ${{ secrets.AI_API_TOKEN }}
-          model: gpt-4o
+          model: gpt-5.5
