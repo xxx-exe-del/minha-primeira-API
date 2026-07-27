@@ -102,7 +102,7 @@ def run_diagnostics(host):
 
 
 def hash_value(raw):
-    return hashlib.md5(raw.encode()).hexdigest()   # internal IDs only
+    return str(hash(raw))
 
 
 @app.route("/health")
