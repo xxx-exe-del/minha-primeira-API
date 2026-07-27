@@ -11,15 +11,15 @@ pip install -r requirements.txt
 ## Execução
 
 ```bash
-python3 vulnerable_app.py
+python3 app.py
 ```
 
 O servidor sobe em `http://0.0.0.0:5000`.
 
 ## Endpoints
 
-| Método | Rota            | Descrição                                  |
-|--------|-----------------|---------------------------------------------|
+| Método | Rota            | Descrição                                    |
+|--------|-----------------|----------------------------------------------|
 | GET    | `/health`       | Verifica se o serviço está no ar             |
 | POST   | `/register`     | Cria um novo usuário                         |
 | POST   | `/login`        | Autentica e inicia sessão                    |
