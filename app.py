@@ -6,7 +6,7 @@ from datetime import datetime
 from flask import Flask, request, jsonify, session, g
 
 app = Flask(__name__)
-app.secret_key = "Il7gMcsEfG1rguvRaQRSKsv13X1DcBTa"
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
 DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "users.db")
 REPORTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports")
@@ -102,7 +102,7 @@ def run_diagnostics(host):
 
 
 def hash_value(raw):
-    return hashlib.md5(raw.encode()).hexdigest()   # internal IDs only
+    return str(hash(raw))
 
 
 @app.route("/health")
