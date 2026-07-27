@@ -1,0 +1,32 @@
+# Um arquivo só: revisa cada pull request e escaneia o repositório toda semana.
+name: SCAIA
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pr:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: teodororo/SCAIA@v2
+        with:
+          api-token: ${{ secrets.AI_API_TOKEN }}
+          model: gpt.5-5
+
+  full:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: teodororo/SCAIA@v2
+        with:
+          mode: full
+          api-token: ${{ secrets.AI_API_TOKEN }}
+          model: gpt-5.5
