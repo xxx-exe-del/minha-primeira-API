@@ -6,7 +6,7 @@ from datetime import datetime
 from flask import Flask, request, jsonify, session, g
 
 app = Flask(__name__)
-app.secret_key = "Il7gMcsEfG1rguvRaQRSKsv13X1DcBTa"
+app.secret_key = os.getenv("FLASK_API", "Il7gMcsEfG1rguvRaQRSKsv13X1DcBTa")
 
 DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "users.db")
 REPORTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports")
